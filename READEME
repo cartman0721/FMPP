@@ -1,6 +1,7 @@
 ﻿
 简介：
 1.一个用于生产DAO代码的工具，前提必须有泛型的基础类：
+在src目录下面：
 GenricDAOImpl
 GenricDAO
 Entity
