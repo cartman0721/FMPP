@@ -1,4 +1,39 @@
-﻿仅支持 sqlserver mysql oracle
+﻿
+简介：
+1.一个用于生产DAO代码的工具，前提必须有泛型的基础类：
+GenricDAOImpl
+GenricDAO
+Entity
+
+2.基础实体里Entity里必须有
+    private Long              id;
+    /**
+     * 创建人
+     */
+    private String            gmtCreator;
+    /**
+     * 创建时间
+     */
+    private Date              gmtCreated;
+    /**
+     * 修改人
+     */
+    private String            gmtModifier;
+    /**
+     * 修改时间
+     */
+    private Date              gmtModified;
+  同理：
+数据库里有一下字段：
+gmt_modified timestamp
+gmt_creator varchar
+gmt_created timestamp
+gmt_modifier varchar
+否则请修改tableEntityDAOTest模板
+
+
+
+仅支持 sqlserver mysql oracle
 	其中 oracle 支持ibatis 其他近支持hibernate 如需支持参考oracle
 	tdd(data/dateType.tdd)
 ###################################
@@ -24,9 +59,9 @@ data:
    default_package:com.alifi.agds //默认包名
    
    
-   default_Creator:bangis.wangdf
-   default_Modifier:bangis.wangdf
-   default_author:bangis.wangdf
+   default_Creator:dazuo.sundz
+   default_Modifier:dazuo.sundz
+   default_author:dazuo.sundz
    default_JavaType:String
    default_IbatisType:VARCHAR
    
