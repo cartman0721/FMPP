@@ -1,0 +1,59 @@
+<#ftl  ns_prefixes={"a":"attribute","c":"collection","o":"object"}> 
+<@pp.dropOutputFile />
+<#list p.tables! as tab>
+<@pp.changeOutputFile name="/${projectname}/src/main/resources/META-INF/sqlMap/" + tab.Code + "_SqlMap.xml" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="${tab.Code}">
+	<resultMap class="${tab.Package}.${model}.${CamelPeak(tab.Code)?cap_first}" id="BaseResultMap">
+	<#list tab.columns! as column>
+		<result column="${column.Code}" jdbcType="${getSqlMapType(column)}" property="${CamelPeak(column.Code)}" /><!-- ${column.Name} -->
+	</#list>
+	</resultMap>
+	<sql id="Base_Column_List">
+	<#list tab.columns! as column><#if column_index==0>${column.Code}<#else>,${column.Code}</#if></#list>
+	</sql>
+	<delete id="deleteById" parameterClass="java.lang.Long">
+	  delete from ${tab.Code}
+	  where ID = #id:DECIMAL#
+	</delete>
+	<select id="getById" resultMap="BaseResultMap">
+	  select 
+	  <include refid="${tab.Code}.Base_Column_List" />
+	  from ${tab.Code}
+	  where ID = #id:DECIMAL#
+	</select>	
+	<insert id="insert" parameterClass="${tab.Package}.${model}.${CamelPeak(tab.Code)?cap_first}">
+	 <#if database == "oracle">
+	  <selectKey keyProperty="id" resultClass="Long">
+	    select SEQ_${tab.Code}.nextval from DUAL
+	  </selectKey>
+				<#else>	
+	</#if>
+	 
+	  insert into ${tab.Code} (
+		<#list tab.columns! as column><#if column_index==0>${column.Code}<#else>,${column.Code}</#if></#list>
+		)
+	  values (
+	  	<#list tab.columns! as column><#if column_index==0>#${CamelPeak(column.Code)}:${getSqlMapType(column)}#<#else>,#${CamelPeak(column.Code)}:${getSqlMapType(column)}#</#if></#list>
+	    )
+	  <#if database == "mysql">
+        <selectKey resultClass="long" keyProperty="id">  
+           <![CDATA[SELECT LAST_INSERT_ID() AS ID ]]>
+		</selectKey>
+				<#else>	
+	</#if>
+	    
+	</insert>
+	<update id="update" parameterClass="${tab.Package}.${model}.${CamelPeak(tab.Code)?cap_first}">
+	 update ${tab.Code}
+     set 
+     <#list tab.columns! as column><#assign __flag=false>
+     <#if column.Code != "GMT_CREATED" && column.Code != "GMT_CREATOR" && column.Code != "ID"><#assign __flag=true>
+     ${column.Code}=#${CamelPeak(column.Code)}:${getSqlMapType(column)}#<#if column_index+1 lt tab.columns?size &&  __flag>,</#if>
+     </#if>
+     </#list>
+     where ID = #id:DECIMAL#
+	</update>  
+</sqlMap>
+</#list>

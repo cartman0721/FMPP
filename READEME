@@ -1,0 +1,50 @@
+﻿仅支持 sqlserver mysql oracle
+	其中 oracle 支持ibatis 其他近支持hibernate 如需支持参考oracle
+	tdd(data/dateType.tdd)
+###################################
+config.fmpp文件设置：
+
+sourceRoot:template  //源
+outputRoot:build	 //输出
+
+outputEncoding:utf-8 //输出编码格式
+sourceEncoding:utf-8 //输入编码格式
+
+borders:[
+	//<#include '/gen/gen_ibatis.ftl'> 解析的每个ftl文件自动包含这个文件
+	//iBatis/**/*.ftl 这个下面的ftl文件自动包含这个文件
+	header("<#include '/gen/gen_ibatis.ftl'>",iBatis/**/*.ftl) 
+]
+
+data:
+{
+   database:oracle //数据库类型
+   projectname:agds.dal //项目名称
+ 
+   default_package:com.alifi.agds //默认包名
+   
+   
+   default_Creator:bangis.wangdf
+   default_Modifier:bangis.wangdf
+   default_author:bangis.wangdf
+   default_JavaType:String
+   default_IbatisType:VARCHAR
+   
+   tdd(data/dateType.tdd) //数据类型转java ibatis类型
+   
+   pdm:xml
+   (
+		pdm_file/GDS_WDF.pdm//要解析的pdm文件
+      {
+         namespaceAware:true	//因为pdm中有命名空间 加次表明使用命名空间
+      }
+   )
+   
+   ExceptionColumns:[ //生成 model时不生成的字段
+	 ID,
+	 GMT_CREATED,
+	 GMT_MODIFIED,
+	 GMT_CREATOR,
+	 GMT_MODIFIER
+   ]
+}

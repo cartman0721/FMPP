@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.6.5
+Created-By: 1.5.0_06-b05 (Sun Microsystems Inc.)
+Main-Class: freemarker.core.CommandLine
+Extension-name: FreeMarker
+Specification-Title: FreeMarker
+Specification-Version: 2.3.11
+Specification-Vendor: Visigoth Software Society
+Implementation-Title: VSS Java FreeMarker
+Implementation-Version: 2.3.11
+Implementation-Vendor: Visigoth Software Society
+

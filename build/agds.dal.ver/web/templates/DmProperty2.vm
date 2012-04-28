@@ -1,0 +1,22 @@
+	wdf = wdf
+	id		$!dmProperty.id
+	path_id		$!dmProperty.pathId
+	pcode		$!dmProperty.pcode
+	pname		$!dmProperty.pname
+	data_type		$!dmProperty.dataType
+	validator		$!dmProperty.validator
+	tag		$!dmProperty.tag
+	status		$!dmProperty.status
+	dw_table		$!dmProperty.dwTable
+	dw_column		$!dmProperty.dwColumn
+	descs		$!dmProperty.descs
+	creater		$!dmProperty.creater
+	operator		$!dmProperty.operator
+	gmt_create		$!dmProperty.gmtCreate
+	gmt_modified		$!dmProperty.gmtModified
+	in_date		$!dmProperty.inDate
+	submit_date		$!dmProperty.submitDate
+	upd_frequency		$!dmProperty.updFrequency
+	timeliness		$!dmProperty.timeliness
+	priority		$!dmProperty.priority
+

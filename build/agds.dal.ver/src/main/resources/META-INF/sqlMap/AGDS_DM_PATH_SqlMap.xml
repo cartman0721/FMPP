@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="AGDS_DM_PATH">
+	<resultMap class="com.alifi.agds.common.dmmanage.model.DmPath" id="BaseResultMap">
+		<result column="ID" jdbcType="INTEGER" property="id" /><!-- id -->
+		<result column="PCODE" jdbcType="VARCHAR" property="pcode" /><!-- pcode -->
+		<result column="PNAME" jdbcType="VARCHAR" property="pname" /><!-- pname -->
+		<result column="PARENT_ID" jdbcType="INTEGER" property="parentId" /><!-- parent_id -->
+		<result column="DESCS" jdbcType="VARCHAR" property="descs" /><!-- descs -->
+		<result column="GMT_CREATE" jdbcType="TIMESTAMP" property="gmtCreate" /><!-- gmt_create -->
+		<result column="GMT_MODIFIED" jdbcType="TIMESTAMP" property="gmtModified" /><!-- gmt_modified -->
+		<result column="OPERATOR" jdbcType="VARCHAR" property="operator" /><!-- operator -->
+	</resultMap>
+	<sql id="Base_Column_List">
+	ID,PCODE,PNAME,PARENT_ID,DESCS,GMT_CREATE,GMT_MODIFIED,OPERATOR
+	</sql>
+	<delete id="deleteById" parameterClass="java.lang.Long">
+	  delete from AGDS_DM_PATH
+	  where ID = #id:DECIMAL#
+	</delete>
+	<select id="getById" resultMap="BaseResultMap">
+	  select 
+	  <include refid="AGDS_DM_PATH.Base_Column_List" />
+	  from AGDS_DM_PATH
+	  where ID = #id:DECIMAL#
+	</select>	
+	<insert id="insert" parameterClass="com.alifi.agds.common.dmmanage.model.DmPath">
+	 
+	  insert into AGDS_DM_PATH (
+		ID,PCODE,PNAME,PARENT_ID,DESCS,GMT_CREATE,GMT_MODIFIED,OPERATOR
+		)
+	  values (
+	  	#id:INTEGER#,#pcode:VARCHAR#,#pname:VARCHAR#,#parentId:INTEGER#,#descs:VARCHAR#,#gmtCreate:TIMESTAMP#,#gmtModified:TIMESTAMP#,#operator:VARCHAR#
+	    )
+        <selectKey resultClass="long" keyProperty="id">  
+           <![CDATA[SELECT LAST_INSERT_ID() AS ID ]]>
+		</selectKey>
+	    
+	</insert>
+	<update id="update" parameterClass="com.alifi.agds.common.dmmanage.model.DmPath">
+	 update AGDS_DM_PATH
+     set 
+     PCODE=#pcode:VARCHAR#,
+     PNAME=#pname:VARCHAR#,
+     PARENT_ID=#parentId:INTEGER#,
+     DESCS=#descs:VARCHAR#,
+     GMT_CREATE=#gmtCreate:TIMESTAMP#,
+     GMT_MODIFIED=#gmtModified:TIMESTAMP#,
+     OPERATOR=#operator:VARCHAR#
+     where ID = #id:DECIMAL#
+	</update>  
+</sqlMap>

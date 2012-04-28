@@ -1,0 +1,7 @@
+<#ftl  ns_prefixes={"a":"attribute","c":"collection","o":"object"}> 
+<@pp.dropOutputFile />
+<@pp.changeOutputFile name="/${projectname}/src/main/resources/META-INF/sqlmap-config.xml" />
+
+	<#list p.tables! as tab>
+	<sqlMap resource="META-INF/sqlMap/${tab.Code}_SqlMap.xml" />
+	</#list>

@@ -1,0 +1,33 @@
+知识点1
+	attempt, recover 
+见 fmpp_0.9.14\docs\freemarker\ref_directive_attempt.html
+举例
+	Primary content
+	<#attempt>
+	  Optional content: ${thisMayFails}
+	<#recover>
+	  Ops! The optional content is not available.
+	</#attempt>
+	Primary content continued 
+	
+	
+	If the thisMayFails variable doesn't exist, then the output is:
+	
+	   
+	 Primary content
+	  Ops! The optional content is not available.
+	Primary content continued   
+	  
+	   
+	
+	
+	If the thisMayFails variable exists and it's value is 123, then the output is:
+	
+	   
+	 Primary content
+	  Optional content: 123
+	Primary content continued   
+
+知识点2 
+visit, recurse, fallback 
+见fmpp_0.9.14\docs\freemarker\ref_directive_visit.html

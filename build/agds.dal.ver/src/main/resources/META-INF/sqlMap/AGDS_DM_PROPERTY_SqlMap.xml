@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="AGDS_DM_PROPERTY">
+	<resultMap class="com.alifi.agds.common.dmmanage.model.DmProperty" id="BaseResultMap">
+		<result column="ID" jdbcType="INTEGER" property="id" /><!-- id -->
+		<result column="PATH_ID" jdbcType="INTEGER" property="pathId" /><!-- path_id -->
+		<result column="PCODE" jdbcType="VARCHAR" property="pcode" /><!-- pcode -->
+		<result column="PNAME" jdbcType="VARCHAR" property="pname" /><!-- pname -->
+		<result column="DATA_TYPE" jdbcType="INTEGER" property="dataType" /><!-- data_type -->
+		<result column="VALIDATOR" jdbcType="VARCHAR" property="validator" /><!-- validator -->
+		<result column="TAG" jdbcType="INTEGER" property="tag" /><!-- tag -->
+		<result column="STATUS" jdbcType="INTEGER" property="status" /><!-- status -->
+		<result column="DW_TABLE" jdbcType="VARCHAR" property="dwTable" /><!-- dw_table -->
+		<result column="DW_COLUMN" jdbcType="VARCHAR" property="dwColumn" /><!-- dw_column -->
+		<result column="DESCS" jdbcType="VARCHAR" property="descs" /><!-- descs -->
+		<result column="CREATER" jdbcType="VARCHAR" property="creater" /><!-- creater -->
+		<result column="OPERATOR" jdbcType="VARCHAR" property="operator" /><!-- operator -->
+		<result column="GMT_CREATE" jdbcType="TIMESTAMP" property="gmtCreate" /><!-- gmt_create -->
+		<result column="GMT_MODIFIED" jdbcType="TIMESTAMP" property="gmtModified" /><!-- gmt_modified -->
+		<result column="IN_DATE" jdbcType="TIMESTAMP" property="inDate" /><!-- in_date -->
+		<result column="SUBMIT_DATE" jdbcType="TIMESTAMP" property="submitDate" /><!-- submit_date -->
+		<result column="UPD_FREQUENCY" jdbcType="VARCHAR" property="updFrequency" /><!-- upd_frequency -->
+		<result column="TIMELINESS" jdbcType="VARCHAR" property="timeliness" /><!-- timeliness -->
+		<result column="PRIORITY" jdbcType="VARCHAR" property="priority" /><!-- priority -->
+	</resultMap>
+	<sql id="Base_Column_List">
+	ID,PATH_ID,PCODE,PNAME,DATA_TYPE,VALIDATOR,TAG,STATUS,DW_TABLE,DW_COLUMN,DESCS,CREATER,OPERATOR,GMT_CREATE,GMT_MODIFIED,IN_DATE,SUBMIT_DATE,UPD_FREQUENCY,TIMELINESS,PRIORITY
+	</sql>
+	<delete id="deleteById" parameterClass="java.lang.Long">
+	  delete from AGDS_DM_PROPERTY
+	  where ID = #id:DECIMAL#
+	</delete>
+	<select id="getById" resultMap="BaseResultMap">
+	  select 
+	  <include refid="AGDS_DM_PROPERTY.Base_Column_List" />
+	  from AGDS_DM_PROPERTY
+	  where ID = #id:DECIMAL#
+	</select>	
+	<insert id="insert" parameterClass="com.alifi.agds.common.dmmanage.model.DmProperty">
+	 
+	  insert into AGDS_DM_PROPERTY (
+		ID,PATH_ID,PCODE,PNAME,DATA_TYPE,VALIDATOR,TAG,STATUS,DW_TABLE,DW_COLUMN,DESCS,CREATER,OPERATOR,GMT_CREATE,GMT_MODIFIED,IN_DATE,SUBMIT_DATE,UPD_FREQUENCY,TIMELINESS,PRIORITY
+		)
+	  values (
+	  	#id:INTEGER#,#pathId:INTEGER#,#pcode:VARCHAR#,#pname:VARCHAR#,#dataType:INTEGER#,#validator:VARCHAR#,#tag:INTEGER#,#status:INTEGER#,#dwTable:VARCHAR#,#dwColumn:VARCHAR#,#descs:VARCHAR#,#creater:VARCHAR#,#operator:VARCHAR#,#gmtCreate:TIMESTAMP#,#gmtModified:TIMESTAMP#,#inDate:TIMESTAMP#,#submitDate:TIMESTAMP#,#updFrequency:VARCHAR#,#timeliness:VARCHAR#,#priority:VARCHAR#
+	    )
+        <selectKey resultClass="long" keyProperty="id">  
+           <![CDATA[SELECT LAST_INSERT_ID() AS ID ]]>
+		</selectKey>
+	    
+	</insert>
+	<update id="update" parameterClass="com.alifi.agds.common.dmmanage.model.DmProperty">
+	 update AGDS_DM_PROPERTY
+     set 
+     PATH_ID=#pathId:INTEGER#,
+     PCODE=#pcode:VARCHAR#,
+     PNAME=#pname:VARCHAR#,
+     DATA_TYPE=#dataType:INTEGER#,
+     VALIDATOR=#validator:VARCHAR#,
+     TAG=#tag:INTEGER#,
+     STATUS=#status:INTEGER#,
+     DW_TABLE=#dwTable:VARCHAR#,
+     DW_COLUMN=#dwColumn:VARCHAR#,
+     DESCS=#descs:VARCHAR#,
+     CREATER=#creater:VARCHAR#,
+     OPERATOR=#operator:VARCHAR#,
+     GMT_CREATE=#gmtCreate:TIMESTAMP#,
+     GMT_MODIFIED=#gmtModified:TIMESTAMP#,
+     IN_DATE=#inDate:TIMESTAMP#,
+     SUBMIT_DATE=#submitDate:TIMESTAMP#,
+     UPD_FREQUENCY=#updFrequency:VARCHAR#,
+     TIMELINESS=#timeliness:VARCHAR#,
+     PRIORITY=#priority:VARCHAR#
+     where ID = #id:DECIMAL#
+	</update>  
+</sqlMap>

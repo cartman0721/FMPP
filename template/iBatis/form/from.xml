@@ -1,0 +1,12 @@
+<#ftl  ns_prefixes={"a":"attribute","c":"collection","o":"object"}> 
+<@pp.dropOutputFile />
+<#list p.tables! as tab>
+<#if tab.Code?ends_with("PARAM")?string=="true">
+<@pp.changeOutputFile name="/${projectname}/web/form/" + CamelPeak(tab.Code)?cap_first + "_Form.xml" />
+	<services:group name="${CamelPeak(tab.Code)}Query" >
+	<#list tab.columns! as column>
+	<services:field name="${CamelPeak(column.Code)}" displayName="${column.Name}" />
+	</#list>
+	</services:group>
+</#if>
+</#list>

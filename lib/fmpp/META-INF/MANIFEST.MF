@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.0
+Created-By: 1.5.0_04-b05 (Sun Microsystems Inc.)
+Main-Class: fmpp.tools.CommandLine
+Extension-name: fmpp
+Specification-Title: FMPP
+Specification-Version: 0.9.13
+Specification-Vendor: Dániel Dékány
+Implementation-Title: FMPP
+Implementation-Version: 0.9.13
+Implementation-Vendor: Dániel Dékány
+Class-Path: oro.jar freemarker.jar bsh.jar resolver.jar
+

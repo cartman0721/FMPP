@@ -1,0 +1,21 @@
+<#ftl  ns_prefixes={"a":"attribute","c":"collection","o":"object"}> 
+<@pp.dropOutputFile />
+<#list p.tables! as tab>
+<#if tab.Code?ends_with("PARAM")?string=="true">
+<@pp.changeOutputFile name="/${projectname}/web/query/" + CamelPeak(tab.Code)?cap_first + "_query.vm" />
+<form name="${CamelPeak(tab.Code)}SearchForm" id="${CamelPeak(tab.Code)}SearchForm" method="POST" >
+  #set ($${CamelPeak(tab.Code)}QueryGroup = $form.${CamelPeak(tab.Code)}Query.defaultInstance)
+  $csrfToken.hiddenField
+  <div class="search-form">
+  <#list tab.columns! as column>
+    <dl>
+      <dt>${column.Name}：</dt>
+      <dd>
+      	<input type="text" id="${CamelPeak(column.Code)}" name="$${CamelPeak(tab.Code)}QueryGroup.${CamelPeak(column.Code)}.key" maxlength="256" class="i-text"/>
+      </dd>
+    </dl>
+   </#list>
+  </div>
+</form>
+</#if>
+</#list>

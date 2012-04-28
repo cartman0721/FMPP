@@ -1,0 +1,9 @@
+	wdf = wdf
+	id		$!dmPath.id
+	pcode		$!dmPath.pcode
+	pname		$!dmPath.pname
+	parent_id		$!dmPath.parentId
+	descs		$!dmPath.descs
+	gmt_create		$!dmPath.gmtCreate
+	gmt_modified		$!dmPath.gmtModified
+	operator		$!dmPath.operator

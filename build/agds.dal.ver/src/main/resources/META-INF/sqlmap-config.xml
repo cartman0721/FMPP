@@ -1,0 +1,3 @@
+
+	<sqlMap resource="META-INF/sqlMap/AGDS_DM_PATH_SqlMap.xml" />
+	<sqlMap resource="META-INF/sqlMap/AGDS_DM_PROPERTY_SqlMap.xml" />

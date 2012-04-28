@@ -1,0 +1,11 @@
+<#ftl  ns_prefixes={"a":"attribute","c":"collection","o":"object"}> 
+<@pp.dropOutputFile />
+<#list p.tables! as tab>
+<@pp.changeOutputFile name="/${projectname}/web/templates/" + CamelPeak(tab.Code)?cap_first + ".vm" />
+ 
+	<table>
+	<#list tab.columns! as column>
+	<tr><td width="20%">${column.Name} :</td><td> $!${CamelPeak(tab.Code)}.${CamelPeak(column.Code)}</td></tr>
+	</#list>
+	</table>
+</#list>

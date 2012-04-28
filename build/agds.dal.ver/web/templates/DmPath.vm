@@ -1,0 +1,11 @@
+ 
+	<table>
+	<tr><td width="20%">id :</td><td> $!dmPath.id</td></tr>
+	<tr><td width="20%">pcode :</td><td> $!dmPath.pcode</td></tr>
+	<tr><td width="20%">pname :</td><td> $!dmPath.pname</td></tr>
+	<tr><td width="20%">parent_id :</td><td> $!dmPath.parentId</td></tr>
+	<tr><td width="20%">descs :</td><td> $!dmPath.descs</td></tr>
+	<tr><td width="20%">gmt_create :</td><td> $!dmPath.gmtCreate</td></tr>
+	<tr><td width="20%">gmt_modified :</td><td> $!dmPath.gmtModified</td></tr>
+	<tr><td width="20%">operator :</td><td> $!dmPath.operator</td></tr>
+	</table>

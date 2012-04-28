@@ -1,0 +1,7 @@
+<#ftl  ns_prefixes={"a":"attribute","c":"collection","o":"object"}> 
+<@pp.dropOutputFile />
+<@pp.changeOutputFile name="/${projectname}/src/main/resources/META-INF/spring/dao.xml" />
+
+	<#list p.tables! as tab>
+	<bean id="${CamelPeak(tab.Code)}DAO" class="${tab.Package}.${dal}.impl.${CamelPeak(tab.Code)?cap_first}DAOImpl" />
+	</#list>

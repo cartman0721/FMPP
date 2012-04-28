@@ -1,0 +1,56 @@
+sourceRoot:template
+outputRoot:build
+
+outputEncoding:utf-8
+sourceEncoding:utf-8
+
+
+borders:[
+	header("<#include '/gen/gen_ibatis.ftl'>",iBatis/**/*.*) 
+]
+
+data:
+{
+   model:common.dmmanage.model
+   dal:dal.dmmanage.dao
+   test:dal.dmmanage.dao
+   database:mysql
+   projectname:agds.dal.ver
+ 
+   default_package:com.alifi.agds
+   
+   
+   default_Creator:dazuo.sundz
+   default_Modifier:dazuo.sundz
+   default_author:dazuo.sundz
+   default_JavaType:String
+   default_IbatisType:VARCHAR
+   
+   tdd(data/dateType.tdd)
+   
+   csv: csv(data/LoanDrawndn.csv)
+   
+   excel: csv(data/outscExcel.csv)
+   
+   pdm:xml
+   (
+			pdm_file/agds_dm.pdm
+      {
+         namespaceAware:true
+      }
+   )
+   
+   RMPrefix:[
+   	agds,
+   	ctu
+   ]
+   
+   ExceptionColumns:[
+	
+   ]
+   
+   TypeLongColumnsPrefix:[
+	 IS,
+	 IF
+   ]
+}

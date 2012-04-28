@@ -1,0 +1,23 @@
+ 
+	<table>
+	<tr><td width="20%">id :</td><td> $!dmProperty.id</td></tr>
+	<tr><td width="20%">path_id :</td><td> $!dmProperty.pathId</td></tr>
+	<tr><td width="20%">pcode :</td><td> $!dmProperty.pcode</td></tr>
+	<tr><td width="20%">pname :</td><td> $!dmProperty.pname</td></tr>
+	<tr><td width="20%">data_type :</td><td> $!dmProperty.dataType</td></tr>
+	<tr><td width="20%">validator :</td><td> $!dmProperty.validator</td></tr>
+	<tr><td width="20%">tag :</td><td> $!dmProperty.tag</td></tr>
+	<tr><td width="20%">status :</td><td> $!dmProperty.status</td></tr>
+	<tr><td width="20%">dw_table :</td><td> $!dmProperty.dwTable</td></tr>
+	<tr><td width="20%">dw_column :</td><td> $!dmProperty.dwColumn</td></tr>
+	<tr><td width="20%">descs :</td><td> $!dmProperty.descs</td></tr>
+	<tr><td width="20%">creater :</td><td> $!dmProperty.creater</td></tr>
+	<tr><td width="20%">operator :</td><td> $!dmProperty.operator</td></tr>
+	<tr><td width="20%">gmt_create :</td><td> $!dmProperty.gmtCreate</td></tr>
+	<tr><td width="20%">gmt_modified :</td><td> $!dmProperty.gmtModified</td></tr>
+	<tr><td width="20%">in_date :</td><td> $!dmProperty.inDate</td></tr>
+	<tr><td width="20%">submit_date :</td><td> $!dmProperty.submitDate</td></tr>
+	<tr><td width="20%">upd_frequency :</td><td> $!dmProperty.updFrequency</td></tr>
+	<tr><td width="20%">timeliness :</td><td> $!dmProperty.timeliness</td></tr>
+	<tr><td width="20%">priority :</td><td> $!dmProperty.priority</td></tr>
+	</table>

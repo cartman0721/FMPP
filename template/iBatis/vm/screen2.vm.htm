@@ -1,0 +1,15 @@
+<#ftl  ns_prefixes={"a":"attribute","c":"collection","o":"object"}> 
+<#macro options type value=0>
+	${type} = ${value}
+</#macro>
+
+<@pp.dropOutputFile />
+<#list p.tables! as tab>
+<@pp.changeOutputFile name="/${projectname}/web/templates/" + CamelPeak(tab.Code)?cap_first + "2.vm" />
+ 	<@options type="wdf" value='wdf'/>
+	<#list tab.columns! as column>
+	${column.Name}		$!${CamelPeak(tab.Code)}.${CamelPeak(column.Code)}
+	<#assign length=column.Name?length>
+	</#list>
+</#list>
+

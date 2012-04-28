@@ -1,0 +1,24 @@
+<project name="FMPP_Project" default="build">
+	<property environment="env" />
+	<property name="home" value="." />
+	<property name="src" value="${home}/src" />
+	<property name="bin" value="bin" />
+	<path id="classpath">
+		
+		<fileset dir="${home}/lib">
+					<include name="**/*.jar" />
+		</fileset>
+		<pathelement path="${bin}" />
+	</path>
+
+	<taskdef name="fmpp" classname="fmpp.tools.AntTask" classpathref="classpath" />
+
+	<target name="clean">
+		<delete dir="build" />
+	</target> 
+	<!-- depends="clean"-->
+	<target name="build" depends="clean">
+		<fmpp configuration="./config.fmpp" />
+	</target>
+	
+</project>
