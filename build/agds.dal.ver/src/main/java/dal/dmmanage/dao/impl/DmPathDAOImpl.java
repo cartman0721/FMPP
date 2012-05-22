@@ -1,7 +1,7 @@
 /**
  * Project: agds.dal.ver
  * 
- * File Created at 2012-04-28
+ * File Created at 2012-05-22
  * $Id$
  * 
  * Copyright 1999-2100 Alibaba.com Corporation Limited.
@@ -23,7 +23,7 @@ import com.alifi.agds.dal.dmmanage.dao.DmPathDAO;
  * <li> agds_dm_path</li>
  * 
  * @author dazuo.sundz
- * @generateTime 2012-04-28 13:46:32
+ * @generateTime 2012-05-22 10:16:21
  */
 
 public class DmPathDAOImpl  extends GenricDAOImpl<DmPath> implements DmPathDAO{

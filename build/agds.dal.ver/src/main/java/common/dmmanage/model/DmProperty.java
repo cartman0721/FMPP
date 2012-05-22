@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * <li> 表名： agds_dm_property</li>
  * @author dazuo.sundz
- * @generateTime 2012-04-28 13:46:31
+ * @generateTime 2012-05-22 10:16:21
  */
 
 public class DmProperty extends Entity implements Serializable{
