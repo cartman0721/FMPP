@@ -1,5 +1,6 @@
 ﻿
 简介：
+为减少重复劳动，写了个自动生成DAO代码的工具，在bangis的基础上修改了下
 1.一个用于生产DAO代码的工具，前提必须有泛型的基础类：
 在src目录下面：
 GenricDAOImpl
@@ -34,7 +35,7 @@ gmt_modifier varchar
 
 
 
-仅支持 sqlserver mysql oracle
+仅支持  mysql oracle
 	其中 oracle 支持ibatis 其他近支持hibernate 如需支持参考oracle
 	tdd(data/dateType.tdd)
 ###################################
